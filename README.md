@@ -20,3 +20,15 @@ This project is an end-to-end data analytics pipeline for analyzing Yelp reviews
     <li>Sentiment Analysis: UDF analyzes review sentiment.</li>
     <li>Data Analysis & Insights: SQL queries provide insights.</li>
 </ol>
+
+<h2> SQL Queries</h2>
+<h3>Identify number of businesses for each category:</h3>
+<pre><code>with CTE as (
+select business_id, trim(A.value) as category 
+from tbl_yelp_businesses_cleaned
+, lateral split_to_table(business_categories, ',') A
+)
+select category, count(*) as number_of_businesses
+from CTE
+group by 1 --1 means first column
+order by number_of_businesses desc</code></pre>
