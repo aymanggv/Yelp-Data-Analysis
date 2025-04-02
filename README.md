@@ -129,3 +129,10 @@ where sentiments = 'Positive'
 group by 1,2
 order by 3 desc
 limit 10</code></pre>
+
+<h2>Results & Insights</h2>
+<ul>
+    <li>Sentiment analysis provides insights into customer satisfaction.</li>
+    <li>SQL queries help identify top-performing businesses.</li>
+    <li>Data-driven decisions can be made based on review trends.</li>
+</ul>
