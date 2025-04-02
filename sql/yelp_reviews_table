@@ -1,0 +1,44 @@
+create or replace table yelp_reviews (review_text variant)
+
+copy into yelp_reviews
+from 's3://ayman-yelp'
+CREDENTIALS = (
+    AWS_KEY_ID = '', --Removed for security
+    AWS_SECRET_KEY = '' --Removed for security
+)
+FILE_FORMAT = (TYPE = JSON)
+PATTERN = '^(?!.*yelp_academic_dataset_business.json).*\.json$';
+
+
+CREATE OR REPLACE FUNCTION analyze_sentiment(text STRING)
+RETURNS STRING
+LANGUAGE PYTHON
+RUNTIME_VERSION = '3.8'
+PACKAGES = ('textblob') 
+HANDLER = 'sentiment_analyzer'
+AS $$
+from textblob import TextBlob
+def sentiment_analyzer(text):
+    analysis = TextBlob(text)
+    if analysis.sentiment.polarity > 0:
+        return 'Positive'
+    elif analysis.sentiment.polarity == 0:
+        return 'Neutral'
+    else:
+        return 'Negative'
+$$;
+
+
+create or replace table tbl_yelp_reviews_cleaned as 
+select review_text:business_id::string as business_id, 
+review_text:date::date as review_date,
+review_text:user_id::string as user_id,
+review_text:stars::number as review_stars, 
+review_text:text::string as review_text,
+analyze_sentiment(review_text) as sentiments
+from yelp_reviews
+
+
+select * from tbl_yelp_reviews_cleaned
+
+
