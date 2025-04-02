@@ -11,7 +11,7 @@ This project is an end-to-end data analytics pipeline for analyzing Yelp reviews
 </ul>
 
 <h2>Data Pipeline Flow</h2>
-!(https://github.com/user-attachments/assets/9a21022e-61b9-4fd5-967b-177892d47ed3?raw=True)
+![Image](https://github.com/user-attachments/assets/636b54df-0b31-4950-b9f5-1ffa50166644)
 <ol>
     <li>Extract & Process JSON: Python extracts Yelp reviews and business details.</li>
     <li>Upload to S3: JSON data is uploaded to an S3 bucket.</li>
