@@ -1,0 +1,24 @@
+create or replace table yelp_businesses (business_text variant)
+
+copy into yelp_businesses
+from 's3://ayman-yelp/yelp_academic_dataset_business.json'
+CREDENTIALS = (
+    AWS_KEY_ID = '', --Removed for security
+    AWS_SECRET_KEY = '' --Removed for security
+)
+FILE_FORMAT = (TYPE = JSON);
+
+create or replace table tbl_yelp_businesses_cleaned as
+select business_text:business_id:: string as business_id,
+business_text:name:: string as business_name,
+business_text:city:: string as city,
+business_text:state:: string as state,
+business_text:review_count:: number as review_count,
+business_text:stars:: number as stars,
+business_text:categories:: string as business_categories
+from yelp_businesses
+
+
+select * from tbl_yelp_businesses_cleaned
+
+
