@@ -9,3 +9,13 @@ This project is an end-to-end data analytics pipeline for analyzing Yelp reviews
     <li><strong>SQL & UDFs</strong>: Data transformation and sentiment analysis</li>
     <li><strong>Jupyter Notebooks</strong>: Splitting the Yelp file into multiple smaller files</li>
 </ul>
+
+<h2>Data Pipeline Flow</h2>
+<ol>
+    <li>Extract & Process JSON: Python extracts Yelp reviews and business details.</li>
+    <li>Upload to S3: JSON data is uploaded to an S3 bucket.</li>
+    <li>Load into Snowflake: Data is ingested into Snowflake tables.</li>
+    <li>Flatten JSON Data: SQL queries process nested JSON structures.</li>
+    <li>Sentiment Analysis: UDF analyzes review sentiment.</li>
+    <li>Data Analysis & Insights: SQL queries provide insights.</li>
+</ol>
