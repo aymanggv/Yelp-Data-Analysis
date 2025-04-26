@@ -18,6 +18,16 @@ This project is an end-to-end data analytics pipeline for analyzing Yelp reviews
 5. **Sentiment Analysis**: UDF analyzes review sentiment.
 6. **Data Analysis & Insights**: SQL queries provide insights.
 
+## BI: Analytics & Reporting (Data Analysis)
+
+    #### Objective
+    Develop SQL-based analytics to deliver detailed insights into:
+    - **Sentiment Analysis**
+    - **Restaurant Performance**
+    - **Category Trends**
+
+    These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
+
 ## SQL Queries
 
 ### Identify number of businesses for each category:
