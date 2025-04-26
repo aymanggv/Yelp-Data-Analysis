@@ -20,11 +20,11 @@ This project is an end-to-end data analytics pipeline for analyzing Yelp reviews
 
 ## BI: Analytics & Reporting (Data Analysis)
 
-    #### Objective
-    Develop SQL-based analytics to deliver detailed insights into:
-    - **Sentiment Analysis**
-    - **Restaurant Performance**
-    - **Category Trends**
+#### Objective
+Develop SQL-based analytics to deliver detailed insights into:
+- **Sentiment Analysis**
+- **Restaurant Performance**
+- **Category Trends**
 
     These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
 
